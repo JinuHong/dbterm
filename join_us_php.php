@@ -3,29 +3,33 @@
 ?>
 
 <?php
-    mysql_connect("localhost", "root", "YES") or die (mysql_error());
-    mysql_select_db("music");
+    $servername = getenv('IP');
+    $username = getenv('C9_USER');
+    $password = "";
+    $database = "music";
+    $dbport = 3306;
     
-    //$servername = getenv('IP');
-    //$username = getenv('root');
-    //$password = "vosejdi1!";
-    //$database = "music";
-    //$dbport = 3306;
+    $db = new mysqli($servername, $username, $password, $database, $dbport);    // Conncection 이름
     
-    //$db = new mysqli($servername, $username, $password, $database, $dbport);    // Conncection 이름
+    if($db->connect_error){
+        die("Connection Failed : " .$db->connect_error);
+    }
+    
+    echo "Connected Successfully ( ". $db->host_info.")";
     
     
-    $Div_Combo = $_POST["Div_Combo"];
-    $EMAIL = $_POST["EMAIL"];
-    $PASSWORD = $_POST["PASSWORD"];
-    $NICK = $_POST["NICK"];
-    $NAME = $_POST["NAME"];
-    $Music_Combo = $_POST["Music_Combo"];
-    
+    //$sql = "select * from USERINFO;";
     
     $sql = "insert into USERINFO (email, divide, password, nick, name, prefer) 
-                values ('$EMAIL', '$Div_Combo', '$PASSWORD', '$NICK', '$NAME', '$Music_Combo')";
-    mysql_query($sql) or die (mysql_error());
+               values ('$EMAIL', '$Div_Combo', '$PASSWORD', '$NICK', '$NAME', '$Music_Combo')";
+    
+    if($db->query($sql) == TRUE){
+        echo "New record created successfully.";
+    }else{
+        echo "Error : ".$sql."<br>".$db->error;
+    }
+    
+    //mysql_query($sql) or die (mysql_error());
     
     echo(
         "

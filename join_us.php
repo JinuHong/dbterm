@@ -14,7 +14,7 @@
         <center>아래 정보를 입력해주시길 바랍니다.</center>
         <br>
         
-        <form name ='TRM' method='post' action='input_mgr.php'</center> <!--입력한 값은 input_prog.php로 넘어갑니다.-->
+        <form name ='TRM' method='post' action='join_us_php.php'</center> <!--입력한 값은 input_prog.php로 넘어갑니다.-->
             <table width='600' border = 1 >
                 <tr>
                     <td width='20%'><center>구분</center></td>
