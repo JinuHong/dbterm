@@ -40,7 +40,7 @@
                 </tr>
                 <tr>
                     <td width='20%'><center>닉네임</center></td>
-                    <td width='80'><input type='text' name='NIK' size='20'</td>
+                    <td width='80'><input type='text' name='NICK' size='20'</td>
                 </tr>
                 <tr>
                     <td width='20%'><center>이름</center></td>
